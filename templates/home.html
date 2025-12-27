@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data API</title>
+</head>
+<body>
+<h1> Weather Data API </h1>
+<p>URL format: http://127.0.0.1:5000/api/v1/station_num/yyyymmdd</p>
+<p>URL Example: http://127.0.0.1:5000/api/v1/10/19881025</p>
+<h2>Weather Stations</h2>
+    <table border="1">
+        <thead class="table-dark">
+            <tr>
+                <th>Station ID</th>
+                <th>Station Name</th>
+                <th>Country</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Height</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in weather_data %}
+            <tr>
+                <td>{{ row["STAID"] }}</td>
+                <td>{{ row["STANAME"] }}</td>
+                <td>{{ row["CN"] }}</td>
+                <td>{{ row["LAT"] }}</td>
+                <td>{{ row["LON"] }}</td>
+                <td>{{ row["HGHT"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
