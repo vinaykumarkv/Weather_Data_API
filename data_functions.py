@@ -21,7 +21,7 @@ def extract_clean_data(folder_path):
         if file == "stations.txt":
             stations_path = mypath + "stations.txt"
             stations_df = pd.read_csv(mypath + file, skiprows=17, sep=None, engine='python')
-        else:
+        elif file.startswith("TG"):
             new_df = pd.read_csv(mypath + file, skiprows=20, sep=None, engine='python')
             all_weather_dfs.append(new_df)
     all_weather_df = pd.concat(all_weather_dfs, axis=0, ignore_index=True)
